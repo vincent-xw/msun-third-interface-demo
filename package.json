@@ -1,0 +1,13 @@
+{
+  "name": "msun-third-interface-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --filter package-name dev",
+    "serve": "pnpm --filter example serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
