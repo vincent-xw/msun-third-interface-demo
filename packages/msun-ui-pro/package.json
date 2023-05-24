@@ -1,0 +1,37 @@
+{
+  "name": "package-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run rm-dist && rollup -cw",
+    "build": "npm run rm-dist && rollup -c",
+    "rm-dist": "rimraf dist",
+    "rm": "rimraf src example .vscode"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "vue": "^2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-url": "^8.0.1",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "path": "^0.12.7",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.23.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-vue": "^6.0.0",
+    "vue-template-babel-compiler": "^2.0.0"
+  }
+}
