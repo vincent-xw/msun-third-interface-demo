@@ -1,20 +1,24 @@
-import Vue from 'vue';
-import BaseDialog from './index.jsx';
-const msunDialog = (props) => {
-  const div = document.createElement('div')
-  document.body.appendChild(div)
+import Vue from "vue";
+import BaseDialog from "./index.jsx";
+const isVueComponents = (data) => {
+  return data?.render instanceof Function;
+};
+const msunDialogInstance = (properties, callback) => {
+  const { props } = properties;
+  const div = document.createElement("div");
+  document.body.appendChild(div);
   const V = Vue;
-  new V({
+  const instance = new V({
     el: div,
     mounted() {
       const self = this;
       this.$nextTick(() => {
         callback({
           notice(noticeProps) {
-            self.$refs.notification.add(noticeProps);
+            self.$refs.basicDialog.add(noticeProps);
           },
           removeNotice(key) {
-            self.$refs.notification.remove(key);
+            self.$refs.basicDialog.remove(key);
           },
           component: self,
           destroy() {
@@ -25,14 +29,44 @@ const msunDialog = (props) => {
       });
     },
     render() {
-      const p = {
-        props,
-        ref: 'notification',
-        style,
-        class: className,
-      };
-      return <BaseDialog {...p} />;
+      const isHeaderComponent = isVueComponents(props.header);
+      const isContentComponent = isVueComponents(props.content);
+      const isFooterComponent = isVueComponents(props.footer);
+      if (isFooterComponent) {
+        Vue.component(props.footer.name, props.footer);
+      }
+      if (isContentComponent) {
+        Vue.component(props.content.name, props.content);
+      }
+      if (isHeaderComponent) {
+        Vue.component(props.header.name, props.header);
+      }
+      return (
+        <BaseDialog ref="basicDialog" dataValue={props}>
+          <div slot="header">
+            {!isHeaderComponent ? props.header : <props.header></props.header>}
+            <i class="close">X</i>
+          </div>
+          {!isContentComponent ? (
+            <div slot="content" domPropsInnerHTML={props.content}></div>
+          ) : (
+            <div slot="content">
+              <props.content></props.content>
+            </div>
+          )}
+          <div slot="footer">
+            {!isFooterComponent ? props.footer : <props.footer></props.footer>}
+          </div>
+        </BaseDialog>
+      );
     },
   });
-}
-export default msunDialog
+  return instance;
+};
+
+const msunDialog = (props, callback) => {
+  msunDialogInstance(props, (a) => {
+    callback(a);
+  });
+};
+export default msunDialog;

@@ -1,5 +1,3 @@
-import Dialog from './components/dialog/index';
+import Dialog from "./components/dialog/index";
 
-export default {
-  Dialog
-}
+export { Dialog };

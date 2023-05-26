@@ -54,8 +54,8 @@ export default {
           sass: null,
           stylus: null,
           less: { javascriptEnabled: true }
-      }, 
-      extract: true
+      },
+      extract: false
     }),
     url(),
     babel({
