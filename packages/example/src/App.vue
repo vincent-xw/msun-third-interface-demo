@@ -8,15 +8,11 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import {toBeExposedFun} from 'package-name';
+console.log('toBeExposedFun :>> ', toBeExposedFun);
 export default {
   name: 'App',
   components: {
     HelloWorld
-  },
-  created() {
-    toBeExposedFun().then(res => {
-      console.log('res :>> ', res);
-    })
   }
 }
 </script>
