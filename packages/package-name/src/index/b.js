@@ -3,11 +3,10 @@ export const bFun = (param) => {
     try {
       resolve({
         param,
-        name: 'bFun'
+        name: "bFun",
       });
     } catch (error) {
-      reject(error)
+      reject(error);
     }
-    
-  })
-}
+  });
+};

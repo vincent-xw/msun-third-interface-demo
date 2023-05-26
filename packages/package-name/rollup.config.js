@@ -1,11 +1,11 @@
-import vue from 'rollup-plugin-vue';
+import vue from 'rollup-plugin-vue2';
 import url from '@rollup/plugin-url';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import alias from '@rollup/plugin-alias';
 import path from 'path';
-import VueTemplateCompiler from 'vue-template-babel-compiler';
+import * as VueTemplateCompiler from 'vue/compiler-sfc';
 import postcss from 'rollup-plugin-postcss';
 import { createRequire } from "module";
 
