@@ -1,5 +1,6 @@
 import Vue from "vue";
 import BaseDialog from "./index.jsx";
+import xss from "xss";
 const isVueComponents = (data) => {
   return data?.render instanceof Function;
 };
@@ -45,17 +46,23 @@ const msunDialogInstance = (properties, callback) => {
         <BaseDialog ref="basicDialog" dataValue={props}>
           <div slot="header">
             {!isHeaderComponent ? props.header : <props.header></props.header>}
-            <i class="close">X</i>
           </div>
           {!isContentComponent ? (
-            <div slot="content" domPropsInnerHTML={props.content}></div>
+            <div slot="content" domPropsInnerHTML={xss(props.content)}></div>
           ) : (
             <div slot="content">
               <props.content></props.content>
             </div>
           )}
+
           <div slot="footer">
-            {!isFooterComponent ? props.footer : <props.footer></props.footer>}
+            {!isFooterComponent ? (
+              props.footer ? (
+                props.footer
+              ) : null
+            ) : (
+              <props.footer />
+            )}
           </div>
         </BaseDialog>
       );
