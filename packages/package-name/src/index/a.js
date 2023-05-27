@@ -1,3 +1,4 @@
+// 我们在这里演示了一个发起网络请求的例子
 import { instance } from "../utils/request/index";
 export const aFun = async () => {
   const result = await instance.get(
