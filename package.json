@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ui": "pnpm --filter msun-ui-pro dev",
     "dev": "pnpm --filter package-name dev",
     "serve": "pnpm --filter example serve"
   },
