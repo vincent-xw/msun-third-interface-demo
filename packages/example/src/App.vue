@@ -7,8 +7,15 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import {toBeExposedFun} from 'package-name';
-console.log('111', await toBeExposedFun())
+import {hookFunDemo} from 'package-name';
+// console.log('111', await toBeExposedFun())
+const a = await hookFunDemo();
+console.log('a :>> ', a);
+if (a.data.code === 1) {
+  console.log('a.msg :>> ', a.msg);
+  const b = await a.nextStep()
+  console.log('b :>> ', b);
+}
 export default {
   name: 'App',
   components: {

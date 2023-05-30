@@ -72,17 +72,26 @@ export default const getName = () => name
 上面的例子，如果是模块导出，我们就使用解构导入
 
 ```js
+
 这里导入的解构出来的变量名字要和导出的保持一致
+
 import {a, getName} from '导出的模块路径'
+
 ```
 
 如果是默认导出，则直接导入一个默认值
 ```js
+
 假设到处的地方是这样
+
 const a = 123;
+
 export default a;
+
 默认导入就是下面这样，这里默认导入的名字可以不和默认导出的一样
+
 import aaa from '到处的模块路径'
 
 这里的aaa 将会和 导出的a完全一样
+
 ```

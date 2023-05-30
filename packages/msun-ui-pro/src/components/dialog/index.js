@@ -55,15 +55,15 @@ const msunDialogInstance = (properties, callback) => {
             </div>
           )}
 
-          <div slot="footer">
-            {!isFooterComponent ? (
-              props.footer ? (
-                props.footer
-              ) : null
-            ) : (
+          {!isFooterComponent ? (
+            props.footer ? (
+              <div slot="footer">props.footer</div>
+            ) : null
+          ) : (
+            <div slot="footer">
               <props.footer />
-            )}
-          </div>
+            </div>
+          )}
         </BaseDialog>
       );
     },

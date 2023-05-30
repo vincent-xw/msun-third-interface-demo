@@ -13,20 +13,19 @@ export default {
   },
   methods: {
     onClose() {
-      console.log("111 :>> ", 111);
       const result = this.dataValue.onClose?.();
-      this.$emit("closeDialog");
       if (result) return;
       document.body.removeChild(this.$el);
     },
     onConfirm() {
-      this.dataValue.onConfirm?.();
+      const result = this.dataValue.onConfirm?.();
+      if (result) return;
+      document.body.removeChild(this.$el);
     },
     onCancel() {
       const result = this.dataValue.onCancel?.();
-      this.$emit("cancelButton");
-      if (!result) return;
-      this.onClose();
+      if (result) return;
+      document.body.removeChild(this.$el);
     },
   },
   render() {
