@@ -7,6 +7,8 @@ const toBeExposedFun = async () => {
   // 它的功能由A/B/C三个模块组成
   const aResult = await aFun();
   const bResult = await bFun(aResult);
+
+  // 假设有并行操作 可以用promise all
   return cFun(bResult);
 };
 

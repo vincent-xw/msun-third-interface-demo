@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -6,5 +7,6 @@ module.exports = defineConfig({
     proxy: {
       '/hp': {target: 'https://cn.bing.com'}
     }
-  }
+  },
+  lintOnSave: false
 })

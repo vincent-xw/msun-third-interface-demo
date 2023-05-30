@@ -1,26 +1,28 @@
-import Axios from 'axios';
+import Axios from "axios";
 
 const instance = Axios.create({
-  baseURL: '',
+  baseURL: "",
   timeout: 10000,
-})
+});
 
 const requestInterceptor = (config) => {
-  return config
-}
+  return config;
+};
 
-const requestInterceptorId = instance.interceptors.request.use(requestInterceptor);
+const requestInterceptorId =
+  instance.interceptors.request.use(requestInterceptor);
 
 const responseInterceptor = (response) => {
-  return response
-}
+  return response;
+};
 
-const responseInterceptorId = instance.interceptors.response.use(responseInterceptor)
+const responseInterceptorId =
+  instance.interceptors.response.use(responseInterceptor);
 
 export {
   instance,
   requestInterceptorId,
   requestInterceptor,
   responseInterceptorId,
-  responseInterceptor
-}
+  responseInterceptor,
+};

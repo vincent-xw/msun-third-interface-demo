@@ -8,7 +8,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import {toBeExposedFun} from 'package-name';
-toBeExposedFun()
+console.log('111', await toBeExposedFun())
 export default {
   name: 'App',
   components: {

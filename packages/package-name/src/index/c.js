@@ -9,20 +9,20 @@ export const cFun = (data) => {
         header: 12121212,
         content:
           "<h1 style='color: #f00'>content <img src='https://www.baidu.com' onerror='alert(123)'></h1>",
-        footer,
+        // footer,
         ok: "确认",
         cancel: "取消",
         // footer,
         onClose() {
           console.log("333333 :>> ", 333333);
-          return false;
+          // return false;
         },
         onConfirm() {
           console.log("4444 :>> ", 4444);
         },
         onCancel() {
           console.log("555 :>> ", 555);
-          return true;
+          // return true;
         },
       },
     },

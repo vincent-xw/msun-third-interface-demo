@@ -28,3 +28,12 @@
 * example只是一个基础的vue项目作为测试sdk的项目，你们可以按照自己的需求将其调整为你们想使用的项目
 
 * 最后在项目根路径执行或者进入到项目子包执行`pnpm build`对项目进行打包
+
+## 关于三个子模块
+
+### package-name
+[参考这里](./packages/package-name/README.md)
+### msun-ui-pro
+[参考这里](./packages/msun-ui-pro/README.md)
+### example
+[参考这里](./packages/example/README.md)
