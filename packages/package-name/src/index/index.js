@@ -2,7 +2,7 @@ import { aFun } from "./a";
 import { bFun } from "./b";
 import { cFun } from "./c";
 import { Dialog } from "msun-ui-pro";
-// import footer from "./components/footer.vue";
+import footer from "./components/footer.vue";
 // 每个核心模块的入口，组织好你的模块代码就好，这里不做过多限制
 // 假设我们要输出一个方法
 const toBeExposedFun = async () => {
@@ -54,7 +54,7 @@ const hookFunDemo = (params = {}) => {
                 // footer,
                 ok: "确认",
                 cancel: "取消",
-                // footer,
+                footer,
                 onClose() {
                   console.log("333333 :>> ", 333333);
                   // return false;

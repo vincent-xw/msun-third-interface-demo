@@ -1,7 +1,7 @@
 <template>
   <div class="footerContainer">
-    <button class="okBtn">{{ ok }}</button>
-    <button>{{ cancel }}</button>
+    <button class="okBtn" @click="OK">{{ ok }}</button>
+    <button @click="onCancel">{{ cancel }}</button>
   </div>
 </template>
 <script>
@@ -15,6 +15,15 @@ export default {
   },
   created() {
     console.log("footer组件生效了～ ");
+  },
+  methods: {
+    OK() {
+      this.$emit("onConfirm", "ok 1111");
+    },
+    onCancel() {
+      this.$emit("onCancel", "cancel 2222");
+      this.$emit("closeDialog");
+    },
   },
 };
 </script>

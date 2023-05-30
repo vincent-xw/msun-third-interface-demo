@@ -29,6 +29,20 @@ const msunDialogInstance = (properties, callback) => {
         });
       });
     },
+    methods: {
+      confirm(res) {
+        console.log("res :>> ", res);
+        props.onConfirm?.();
+      },
+      cancel(cel) {
+        console.log("cel :>> ", cel);
+        props.onCancel?.();
+      },
+      close() {
+        console.log("333 :>> ", 333);
+        this.$refs.basicDialog.closeDialog?.();
+      },
+    },
     render() {
       const isHeaderComponent = isVueComponents(props.header);
       const isContentComponent = isVueComponents(props.content);
@@ -61,7 +75,11 @@ const msunDialogInstance = (properties, callback) => {
             ) : null
           ) : (
             <div slot="footer">
-              <props.footer />
+              <props.footer
+                vOn:onConfirm={this.confirm}
+                vOn:onCancel={this.cancel}
+                vOn:closeDialog={this.close}
+              />
             </div>
           )}
         </BaseDialog>
@@ -72,8 +90,13 @@ const msunDialogInstance = (properties, callback) => {
 };
 
 const msunDialog = (props, callback) => {
-  msunDialogInstance(props, (a) => {
+  const instance = msunDialogInstance(props, (a) => {
     callback(a);
   });
+  return {
+    close() {
+      instance.close();
+    },
+  };
 };
 export default msunDialog;

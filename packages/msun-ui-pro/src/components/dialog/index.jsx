@@ -12,20 +12,15 @@ export default {
     return {};
   },
   methods: {
-    onClose() {
-      const result = this.dataValue.onClose?.();
-      if (result) return;
+    closeDialog() {
+      this.$emit("onClose");
       document.body.removeChild(this.$el);
     },
     onConfirm() {
-      const result = this.dataValue.onConfirm?.();
-      if (result) return;
-      document.body.removeChild(this.$el);
+      this.$emit("onConfirm");
     },
     onCancel() {
-      const result = this.dataValue.onCancel?.();
-      if (result) return;
-      document.body.removeChild(this.$el);
+      this.$emit("onCancel");
     },
   },
   render() {
@@ -34,7 +29,7 @@ export default {
         <div class={styles.dialogContent}>
           <div class={styles.header}>
             <div class={styles.headerContent}>{this.$slots.header}</div>
-            <div class={styles.closeIcon} vOn:click={this.onClose}>
+            <div class={styles.closeIcon} vOn:click={this.closeDialog}>
               <svg
                 class={classnames("icon")}
                 viewBox="0 0 1024 1024"
