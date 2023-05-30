@@ -31,15 +31,12 @@ const msunDialogInstance = (properties, callback) => {
     },
     methods: {
       confirm(res) {
-        console.log("res :>> ", res);
-        props.onConfirm?.();
+        props.onConfirm?.(res);
       },
       cancel(cel) {
-        console.log("cel :>> ", cel);
-        props.onCancel?.();
+        props.onCancel?.(cel);
       },
       close() {
-        console.log("333 :>> ", 333);
         this.$refs.basicDialog.closeDialog?.();
       },
     },
@@ -57,7 +54,12 @@ const msunDialogInstance = (properties, callback) => {
         Vue.component(props.header.name, props.header);
       }
       return (
-        <BaseDialog ref="basicDialog" dataValue={props}>
+        <BaseDialog
+          ref="basicDialog"
+          dataValue={props}
+          vOn:onConfirm={this.confirm}
+          vOn:onCancel={this.cancel}
+        >
           <div slot="header">
             {!isHeaderComponent ? props.header : <props.header></props.header>}
           </div>
@@ -90,13 +92,8 @@ const msunDialogInstance = (properties, callback) => {
 };
 
 const msunDialog = (props, callback) => {
-  const instance = msunDialogInstance(props, (a) => {
+  msunDialogInstance(props, (a) => {
     callback(a);
   });
-  return {
-    close() {
-      instance.close();
-    },
-  };
 };
 export default msunDialog;

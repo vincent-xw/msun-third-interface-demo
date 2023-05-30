@@ -50,11 +50,10 @@ const hookFunDemo = (params = {}) => {
                 title: "222",
                 header: 12121212,
                 content:
-                  "<h1 style='color: #f00'>content <img src='https://www.baidu.com' onerror='alert(123)'></h1>",
-                // footer,
+                  "<h1 style='color: #f00'>content11 <img src='https://www.baidu.com' onerror='alert(123)'></h1>",
                 ok: "确认",
                 cancel: "取消",
-                footer,
+                // footer,
                 onClose() {
                   console.log("333333 :>> ", 333333);
                   // return false;

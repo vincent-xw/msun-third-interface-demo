@@ -51,13 +51,13 @@ export default {
                   vOn:click={this.onConfirm}
                   class={classnames(styles.button, styles.primary)}
                 >
-                  {this.dataValue.ok}
+                  {this.dataValue.ok || "确认"}
                 </button>
                 <button
                   vOn:click={this.onCancel}
                   class={classnames(styles.button)}
                 >
-                  {this.dataValue.cancel}
+                  {this.dataValue.cancel || "取消"}
                 </button>
               </div>
             )}
